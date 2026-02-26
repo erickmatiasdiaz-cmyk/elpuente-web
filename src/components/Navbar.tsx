@@ -1,13 +1,12 @@
-
 "use client";
 
 /*
 ====================================================
-NAVBAR CORPORATIVO INDUSTRIAL DEFINITIVO
-- Negro estructural
+NAVBAR INDUSTRIAL DEFINITIVO – EL PUENTE
+- Altura fija real
+- Logo visible completo
 - Línea técnica amarilla
-- Logo integrado profesionalmente
-- Scroll elegante
+- Scroll profesional
 - Mobile sólido
 ====================================================
 */
@@ -38,7 +37,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-black/95 backdrop-blur-md shadow-2xl"
           : "bg-black"
@@ -47,23 +46,25 @@ export default function Navbar() {
       {/* Línea técnica amarilla */}
       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-yellow-500" />
 
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      {/* Contenedor principal con altura fija */}
+      <div className="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
 
         {/* LOGO */}
-        <a href="#" className="flex items-center">
-          <Image
-  src="/images/elpuente.png"
-  alt="El Puente"
-  width={300}
-  height={80}
-  priority
-  className="h-14 md:h-16 w-auto"
-/>
+        <a href="#" className="flex items-center h-full -translate-y-[2px]">
+          <div className="relative h-14 w-[220px] sm:h-16 sm:w-[250px] md:h-20 md:w-[320px]">
+            <Image
+              src="/images/elpuente-logo.png"
+              alt="El Puente"
+              fill
+              priority
+              sizes="(max-width: 640px) 220px, (max-width: 768px) 250px, 320px"
+              className="object-contain object-left"
+            />
+          </div>
         </a>
 
-        {/* Desktop */}
+        {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center gap-10">
-
           {links.map((link, index) => (
             <a
               key={index}
