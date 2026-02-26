@@ -2,11 +2,12 @@
 
 /*
 ====================================================
-NAVBAR CORPORATIVO LIMPIO Y CONSISTENTE
-- Fondo oscuro siempre (sin flash blanco)
-- Scroll suave
-- Mobile premium
-- Sin Inicio ni Estadísticas
+NAVBAR CORPORATIVO DEFINITIVO
+- Negro estructural (no azul plano)
+- Separación clara del hero
+- Línea técnica inferior
+- Scroll elegante
+- Mobile sólido
 ====================================================
 */
 
@@ -35,14 +36,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0B1623]/95 backdrop-blur-md shadow-xl"
-          : "bg-[#0B1623]"
+          ? "bg-black/95 backdrop-blur-md shadow-2xl"
+          : "bg-black"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
+      <div className="relative max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
         {/* Logo */}
         <a
           href="#"
@@ -51,7 +52,7 @@ export default function Navbar() {
           EL PUENTE
         </a>
 
-        {/* Desktop */}
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-10">
           {links.map((link, index) => (
             <a
@@ -66,7 +67,7 @@ export default function Navbar() {
 
           <a
             href="#contacto"
-            className="bg-yellow-500 text-black px-6 py-2 rounded-md font-medium hover:bg-yellow-400 transition"
+            className="bg-yellow-500 text-black px-6 py-2 font-semibold hover:bg-yellow-400 transition"
           >
             Cotizar
           </a>
@@ -79,6 +80,9 @@ export default function Navbar() {
         >
           ☰
         </button>
+
+        {/* Línea técnica inferior */}
+        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-yellow-500 to-transparent" />
       </div>
 
       {/* Mobile Menu */}
@@ -89,9 +93,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-[#0B1623] px-6 pb-6 border-t border-gray-800"
+            className="lg:hidden bg-black border-t border-gray-800 px-6 pb-6"
           >
-            <div className="flex flex-col gap-6 pt-4">
+            <div className="flex flex-col gap-6 pt-6">
               {links.map((link, index) => (
                 <a
                   key={index}
@@ -106,7 +110,7 @@ export default function Navbar() {
               <a
                 href="#contacto"
                 onClick={() => setIsOpen(false)}
-                className="bg-yellow-500 text-black px-6 py-2 rounded-md font-medium text-center"
+                className="bg-yellow-500 text-black px-6 py-3 font-semibold text-center"
               >
                 Cotizar
               </a>

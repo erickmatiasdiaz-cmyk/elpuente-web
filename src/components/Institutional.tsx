@@ -2,10 +2,11 @@
 
 /*
 ====================================================
-SECCIÓN EXPERIENCIA – CAPACIDAD TÉCNICA REAL
-- Enfoque licitable
-- Datos estructurados
-- Imagen corporativa sobria
+CAPACIDAD OPERATIVA – CONSTRUCTORA GRANDE AGRESIVA
+- Números dominantes
+- Contraste fuerte
+- Jerarquía clara
+- Sensación industrial
 ====================================================
 */
 
@@ -13,88 +14,105 @@ import { motion } from "framer-motion";
 
 export default function Institutional() {
   return (
-    <section id="experiencia" className="py-32 bg-[#0E1F33] text-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="experiencia" className="bg-[#0B1623] text-white">
 
-        {/* Encabezado */}
-        <div className="mb-20">
-          <span className="text-yellow-500 uppercase tracking-[4px] text-sm">
-            Experiencia y Capacidad Operativa
-          </span>
+      {/* BLOQUE SUPERIOR – TÍTULO */}
+      <div className="max-w-6xl mx-auto px-6 py-32 text-center">
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-6 leading-tight">
-            Ejecución Técnica con Enfoque en Cumplimiento y Seguridad
-          </h2>
+        <span className="text-yellow-500 uppercase tracking-[6px] text-sm">
+          Capacidad Operativa
+        </span>
 
-          <div className="w-24 h-[3px] bg-yellow-500 mt-8"></div>
+        <h2 className="text-5xl md:text-6xl font-extrabold mt-8 leading-tight">
+          Respaldo Técnico y
+          <br />
+          Ejecución en Terreno
+        </h2>
 
-          <p className="text-gray-300 mt-10 max-w-3xl leading-relaxed">
-            Nuestra trayectoria en obras de movimiento de tierra y ejecución
-            operativa nos permite abordar proyectos de mediana y gran escala
-            bajo estándares técnicos exigentes.
+        <div className="w-28 h-[4px] bg-yellow-500 mx-auto mt-10"></div>
+
+        <p className="text-gray-300 mt-12 max-w-3xl mx-auto text-lg leading-relaxed">
+          Ejecutamos proyectos bajo estándares técnicos exigentes,
+          combinando planificación estratégica, control operativo
+          y supervisión permanente en obra.
+        </p>
+      </div>
+
+
+      {/* BLOQUE NÚMEROS – IMPACTO FUERTE */}
+      <div className="bg-black py-28 border-y border-gray-800">
+
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-16 text-center">
+
+          {[
+            { number: "10+", label: "Años de Experiencia" },
+            { number: "150+", label: "Proyectos Ejecutados" },
+            { number: "20+", label: "Equipos Disponibles" },
+            { number: "RM", label: "Cobertura Regional" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-6xl md:text-7xl font-extrabold text-yellow-500">
+                {item.number}
+              </div>
+
+              <div className="mt-6 text-sm uppercase tracking-widest text-gray-400">
+                {item.label}
+              </div>
+            </motion.div>
+          ))}
+
+        </div>
+      </div>
+
+
+      {/* BLOQUE TÉCNICO – RESPALDO */}
+      <div className="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-3 gap-16">
+
+        <div>
+          <h3 className="text-2xl font-bold text-yellow-500 mb-8">
+            Planificación Técnica
+          </h3>
+
+          <p className="text-gray-300 leading-relaxed">
+            Evaluación previa de terreno, coordinación logística,
+            programación de equipos y control de avance
+            mediante supervisión técnica continua.
           </p>
         </div>
 
-        {/* Bloques técnicos */}
-        <div className="grid md:grid-cols-3 gap-12">
+        <div>
+          <h3 className="text-2xl font-bold text-yellow-500 mb-8">
+            Gestión Operativa
+          </h3>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-semibold mb-6 text-yellow-500">
-              Experiencia Operativa
-            </h3>
+          <p className="text-gray-300 leading-relaxed">
+            Flota mantenida y operadores certificados que
+            aseguran eficiencia, continuidad de obra
+            y cumplimiento estricto de plazos establecidos.
+          </p>
+        </div>
 
-            <ul className="space-y-4 text-gray-300 leading-relaxed">
-              <li>• Más de 150 proyectos ejecutados</li>
-              <li>• Obras habitacionales e industriales</li>
-              <li>• Coordinación en terreno con equipos técnicos</li>
-              <li>• Planificación y control de avance</li>
-            </ul>
-          </motion.div>
+        <div>
+          <h3 className="text-2xl font-bold text-yellow-500 mb-8">
+            Seguridad y Cumplimiento
+          </h3>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-semibold mb-6 text-yellow-500">
-              Capacidad Técnica
-            </h3>
-
-            <ul className="space-y-4 text-gray-300 leading-relaxed">
-              <li>• Flota moderna y mantenida</li>
-              <li>• Operadores certificados</li>
-              <li>• Supervisión técnica en obra</li>
-              <li>• Gestión de maquinaria y logística</li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-semibold mb-6 text-yellow-500">
-              Cumplimiento y Seguridad
-            </h3>
-
-            <ul className="space-y-4 text-gray-300 leading-relaxed">
-              <li>• Protocolos de seguridad en terreno</li>
-              <li>• Cumplimiento normativo vigente</li>
-              <li>• Control de riesgos operativos</li>
-              <li>• Supervisión y coordinación técnica continua</li>
-            </ul>
-          </motion.div>
-
+          <p className="text-gray-300 leading-relaxed">
+            Protocolos de seguridad en terreno,
+            control de riesgos operativos
+            y cumplimiento normativo vigente
+            en cada proyecto ejecutado.
+          </p>
         </div>
 
       </div>
+
     </section>
   );
 }

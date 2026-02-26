@@ -1,19 +1,17 @@
-﻿// ========================================
-// CONTACT SECTION - PLATAFORMA COMERCIAL DEMO
-// - Formulario estratégico
-// - Redirección automática a WhatsApp
-// - Confirmación visual elegante
-// ========================================
+﻿"use client";
 
-"use client";
+/*
+====================================================
+CONTACTO – CONSTRUCTORA GRANDE AGRESIVA
+- Fondo oscuro
+- Diseño corporativo sólido
+- Sensación departamento técnico
+====================================================
+*/
 
 import { useState } from "react";
 
 export default function Contact() {
-
-  // ========================================
-  // ESTADO DEL FORMULARIO
-  // ========================================
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -23,12 +21,7 @@ export default function Contact() {
     mensaje: "",
   });
 
-  // Estado para mostrar mensaje de confirmación
   const [enviado, setEnviado] = useState(false);
-
-  // ========================================
-  // MANEJO DE CAMBIOS EN INPUTS
-  // ========================================
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -39,27 +32,20 @@ export default function Contact() {
     });
   };
 
-  // ========================================
-  // ENVÍO DEL FORMULARIO (DEMO)
-  // - Construye mensaje
-  // - Abre WhatsApp con datos prellenados
-  // ========================================
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const numeroWhatsApp = "56912345678"; 
-    // ⚠️ Cambiar por número real cuando el cliente confirme
+    const numeroWhatsApp = "56912345678";
 
     const mensaje = `
-Nueva solicitud de cotización:
+Solicitud de Cotización:
 
 Nombre: ${formData.nombre}
 Empresa: ${formData.empresa}
 Teléfono: ${formData.telefono}
 Servicio: ${formData.servicio}
 
-Detalle del Proyecto:
+Detalle:
 ${formData.mensaje}
     `;
 
@@ -67,13 +53,10 @@ ${formData.mensaje}
       mensaje
     )}`;
 
-    // Abre WhatsApp en nueva pestaña
     window.open(url, "_blank");
 
-    // Mostrar confirmación visual
     setEnviado(true);
 
-    // Limpiar formulario
     setFormData({
       nombre: "",
       empresa: "",
@@ -83,59 +66,68 @@ ${formData.mensaje}
     });
   };
 
-  // ========================================
-  // RENDER
-  // ========================================
-
   return (
-    <section id="contacto" className="py-28 bg-gray-100">
+    <section id="contacto" className="bg-[#0B1623] text-white py-32">
+
+      {/* ENCABEZADO */}
+      <div className="max-w-6xl mx-auto px-6 text-center mb-20">
+
+        <span className="text-yellow-500 uppercase tracking-[6px] text-sm">
+          Contacto Técnico
+        </span>
+
+        <h2 className="text-5xl md:text-6xl font-extrabold mt-8 leading-tight">
+          Coordinación y Evaluación
+          <br />
+          de Proyectos
+        </h2>
+
+        <div className="w-28 h-[4px] bg-yellow-500 mx-auto mt-10"></div>
+
+        <p className="text-gray-300 mt-12 max-w-3xl mx-auto text-lg leading-relaxed">
+          Nuestro equipo técnico evaluará su requerimiento y coordinará
+          soluciones operativas en terreno.
+        </p>
+
+      </div>
+
+      {/* FORMULARIO */}
       <div className="max-w-4xl mx-auto px-6">
 
-        {/* TÍTULO */}
-        <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold mb-4">
-            Solicitar Cotización
-          </h3>
-          <p className="text-gray-600">
-            Completa el formulario y nos pondremos en contacto a la brevedad.
-          </p>
-        </div>
-
-        {/* MENSAJE DE CONFIRMACIÓN */}
         {enviado && (
-          <div className="mb-6 p-4 bg-green-100 text-green-800 rounded-md">
-            Solicitud enviada correctamente. Se abrió WhatsApp para continuar la conversación.
+          <div className="mb-8 p-4 border border-green-500 bg-green-500/10 text-green-400">
+            Solicitud enviada correctamente. Se abrió WhatsApp para continuar la coordinación.
           </div>
         )}
 
-        {/* FORMULARIO */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-10 rounded-lg shadow-xl space-y-6"
+          className="bg-black border border-gray-800 p-12 space-y-8"
         >
 
-          {/* Nombre */}
-          <input
-            type="text"
-            name="nombre"
-            placeholder="Nombre Completo"
-            value={formData.nombre}
-            onChange={handleChange}
-            required
-            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-          />
+          <div className="grid md:grid-cols-2 gap-8">
 
-          {/* Empresa */}
-          <input
-            type="text"
-            name="empresa"
-            placeholder="Empresa"
-            value={formData.empresa}
-            onChange={handleChange}
-            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-          />
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Nombre Completo"
+              value={formData.nombre}
+              onChange={handleChange}
+              required
+              className="bg-[#111827] border border-gray-700 p-4 focus:outline-none focus:border-yellow-500"
+            />
 
-          {/* Teléfono */}
+            <input
+              type="text"
+              name="empresa"
+              placeholder="Empresa"
+              value={formData.empresa}
+              onChange={handleChange}
+              className="bg-[#111827] border border-gray-700 p-4 focus:outline-none focus:border-yellow-500"
+            />
+
+          </div>
+
           <input
             type="tel"
             name="telefono"
@@ -143,16 +135,15 @@ ${formData.mensaje}
             value={formData.telefono}
             onChange={handleChange}
             required
-            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="w-full bg-[#111827] border border-gray-700 p-4 focus:outline-none focus:border-yellow-500"
           />
 
-          {/* Servicio */}
           <select
             name="servicio"
             value={formData.servicio}
             onChange={handleChange}
             required
-            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="w-full bg-[#111827] border border-gray-700 p-4 focus:outline-none focus:border-yellow-500"
           >
             <option value="">Seleccione Servicio</option>
             <option value="Movimiento de Tierra">
@@ -163,27 +154,26 @@ ${formData.mensaje}
             </option>
           </select>
 
-          {/* Mensaje */}
           <textarea
             name="mensaje"
-            placeholder="Detalle del proyecto"
+            placeholder="Detalle del Proyecto"
             rows={4}
             value={formData.mensaje}
             onChange={handleChange}
-            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="w-full bg-[#111827] border border-gray-700 p-4 focus:outline-none focus:border-yellow-500"
           />
 
-          {/* Botón */}
           <button
             type="submit"
-            className="w-full bg-yellow-500 text-black py-4 rounded-md font-semibold text-lg hover:bg-yellow-400 transition"
+            className="w-full bg-yellow-500 text-black py-5 font-bold text-lg hover:bg-yellow-400 transition"
           >
-            Enviar Solicitud
+            Solicitar Evaluación Técnica
           </button>
 
         </form>
 
       </div>
+
     </section>
   );
 }

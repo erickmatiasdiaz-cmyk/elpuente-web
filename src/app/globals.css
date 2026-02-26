@@ -5,15 +5,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Reset base para evitar franjas entre bloques */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* Estilos base del body */
 body {
   background-color: #ffffff;
   color: #111827;
 }
 
-/* Evita que el contenido quede debajo del navbar fijo */
 main {
-  padding-top: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ajuste de anclas para navbar fijo */
+section[id] {
+  scroll-margin-top: 90px;
 }
 h1, h2, h3, h4 {
   letter-spacing: -0.5px;
