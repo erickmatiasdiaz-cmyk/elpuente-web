@@ -1,11 +1,12 @@
+
 "use client";
 
 /*
 ====================================================
-NAVBAR CORPORATIVO DEFINITIVO
-- Negro estructural (no azul plano)
-- Separación clara del hero
-- Línea técnica inferior
+NAVBAR CORPORATIVO INDUSTRIAL DEFINITIVO
+- Negro estructural
+- Línea técnica amarilla
+- Logo integrado profesionalmente
 - Scroll elegante
 - Mobile sólido
 ====================================================
@@ -13,6 +14,7 @@ NAVBAR CORPORATIVO DEFINITIVO
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,24 +38,32 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-black/95 backdrop-blur-md shadow-2xl"
           : "bg-black"
       }`}
     >
-      <div className="relative max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      {/* Línea técnica amarilla */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-yellow-500" />
 
-        {/* Logo */}
-        <a
-          href="#"
-          className="text-white font-bold text-lg tracking-wider"
-        >
-          EL PUENTE
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        {/* LOGO */}
+        <a href="#" className="flex items-center">
+          <Image
+  src="/images/elpuente.png"
+  alt="El Puente"
+  width={300}
+  height={80}
+  priority
+  className="h-14 md:h-16 w-auto"
+/>
         </a>
 
-        {/* Desktop Nav */}
+        {/* Desktop */}
         <nav className="hidden lg:flex items-center gap-10">
+
           {links.map((link, index) => (
             <a
               key={index}
@@ -80,9 +90,6 @@ export default function Navbar() {
         >
           ☰
         </button>
-
-        {/* Línea técnica inferior */}
-        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-yellow-500 to-transparent" />
       </div>
 
       {/* Mobile Menu */}
@@ -93,9 +100,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-black border-t border-gray-800 px-6 pb-6"
+            className="lg:hidden bg-black px-6 pb-6 border-t border-gray-800"
           >
-            <div className="flex flex-col gap-6 pt-6">
+            <div className="flex flex-col gap-6 pt-4">
               {links.map((link, index) => (
                 <a
                   key={index}
@@ -110,7 +117,7 @@ export default function Navbar() {
               <a
                 href="#contacto"
                 onClick={() => setIsOpen(false)}
-                className="bg-yellow-500 text-black px-6 py-3 font-semibold text-center"
+                className="bg-yellow-500 text-black px-6 py-2 font-semibold text-center"
               >
                 Cotizar
               </a>
