@@ -15,10 +15,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-interface Project {
+export interface Project {
   title: string;
   description: string;
   images: string[];
+  category?: string;
 }
 
 interface Props {

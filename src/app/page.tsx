@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Institutional from "@/components/Institutional";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,9 +14,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Services />        
+        <Services />
         <Projects />
         <Institutional />
+        <Testimonials />
         <Contact />
       </main>
       <WhatsAppButton />

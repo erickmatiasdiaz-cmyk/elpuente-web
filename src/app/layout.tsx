@@ -5,7 +5,14 @@
 // ========================================
 
 import type { Metadata } from "next";
+import { Geist } from "next/font/google";
 import "./globals.css";
+
+const geist = Geist({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-geist",
+});
 
 // Metadata SEO básica (luego la mejoramos)
 export const metadata: Metadata = {
@@ -20,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body>
+    <html lang="es" className={geist.variable}>
+      <body className="font-sans">
         {/*
           children renderiza todo el contenido
           de cada página dentro del layout
